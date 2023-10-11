@@ -51,6 +51,7 @@ export const ConcertCard = ({ concert }: ConcertCardProps) => {
     let index = 1
 
     for (index; index < bandsCount; index++) {
+      charCount += 5
       charCount += concert.bands?.[index]?.name.length || 0
       if (charCount > threshold) {
         break
@@ -61,7 +62,7 @@ export const ConcertCard = ({ concert }: ConcertCardProps) => {
   }
 
   const visibleBandCount = generateVisibleBandCount(
-    (isDesktop ? 40 : 20) * (concert.is_festival ? 2 : 1)
+    (isDesktop ? 60 : 30) * (concert.is_festival ? 1.75 : 1)
   )
   return (
     <div

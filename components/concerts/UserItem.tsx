@@ -31,7 +31,7 @@ export function UserItem({ profile, usernameIsHidden }: UserItemProps) {
           <UserIcon className="h-3 text-slate-850" />
         )}
       </div>
-      <div className={clsx('group-hover/user:underline', usernameIsHidden && 'sr-only')}>
+      <div className={clsx('text-sm group-hover/user:underline', usernameIsHidden && 'sr-only')}>
         {profile.username}
       </div>
     </Link>

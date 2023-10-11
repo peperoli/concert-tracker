@@ -1,6 +1,6 @@
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
-import { useState, useRef, Dispatch, RefObject, SetStateAction } from 'react'
+import { useState, useRef, Dispatch, RefObject, SetStateAction, ReactElement } from 'react'
 import { Option } from '../types/types'
 import { Button } from './Button'
 import { SpinnerIcon } from './layout/SpinnerIcon'
@@ -70,6 +70,7 @@ interface MultiSelectProps {
   isLoading?: boolean
   selectedOptions: Option[]
   setSelectedOptions: (event: Option[]) => void
+  noResultsMessage?: ReactElement
   alwaysOpen?: boolean
   fullHeight?: boolean
 }
@@ -80,6 +81,7 @@ export const MultiSelect = ({
   isLoading,
   selectedOptions,
   setSelectedOptions,
+  noResultsMessage,
   alwaysOpen,
   fullHeight,
 }: MultiSelectProps) => {
@@ -159,9 +161,9 @@ export const MultiSelect = ({
                     searchRef={searchRef}
                   />
                 ))
-              ) : (
-                <div className="p-2 text-slate-300">
-                  Versuchs mal mit einem vernünftigen Suchbegriff.
+              ) :  (
+                <div className="flex flex-wrap gap-2 p-2 text-sm text-slate-300">
+                  {noResultsMessage ?? 'Versuchs mal mit einem vernünftigen Suchbegriff.'}
                 </div>
               )}
             </>

@@ -35,7 +35,7 @@ export const Form = ({ defaultValues, onSubmit, status, close }: FormProps) => {
         .replace(/\p{Diacritic}/gu, '')
         .match(regExp)
     ) || []
-  const isSimilar = dirtyFields.name && watch('name')?.length >= 3 && similarBands.length > 0
+  const isSimilar = !defaultValues && dirtyFields.name && watch('name')?.length >= 3 && similarBands.length > 0
   const regionNames = new Intl.DisplayNames(['de'], { type: 'region' })
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
